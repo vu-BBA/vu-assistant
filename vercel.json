@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/vu-buddy.html", "destination": "/index.html" }
+  ]
+}
