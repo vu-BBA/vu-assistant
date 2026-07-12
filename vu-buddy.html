@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>VU Buddy — AI Study Assistant</title>
+<title>VU Budy — AI Study Assistant</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -141,7 +141,7 @@
 <header>
   <div class="logo-ring">🎓</div>
   <div class="header-text">
-    <h1>VU Buddy</h1>
+    <h1>VU Budy</h1>
     <p>AI Study Assistant · Virtual University of Pakistan</p>
   </div>
   <div class="status-dot"><div class="dot"></div>Online</div>
@@ -372,7 +372,7 @@ Language cs401</button>
       addMessage(answer, "bot", activeSubject);
     } catch(err) {
       hideTyping();
-      addMessage("Connection error. Make sure your workflow is active and try again.", "bot");
+      addMessage("Connection error. Make sure your server is active and try again.", "bot");
     }
     isTyping = false;
     document.getElementById("send-btn").disabled = false;
