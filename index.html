@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>VU Buddy — AI Study Assistant</title>
+<title>VU Budy — AI Study Assistant</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -159,7 +159,7 @@
 <div id="chat">
   <div class="welcome" id="welcome">
     <span class="welcome-icon">📚</span>
-    <h2>Assalam-o-Alaikum! I'm VU Buddy</h2>
+    <h2>Assalam-o-Alaikum! I'm VU Budy</h2>
     <p>Ask me anything from your VU handouts.<br/>I'll find the answer from your course material.</p>
     <div class="quick-grid">
       <button class="quick-btn" onclick="quickAsk(this)"><span>🌐</span>What is CS311 about?</button>
@@ -372,7 +372,7 @@ Language cs401</button>
       addMessage(answer, "bot", activeSubject);
     } catch(err) {
       hideTyping();
-      addMessage("Connection error. Make sure your workflow is active and try again.", "bot");
+      addMessage("Connection error. Make sure your server is active and try again.", "bot");
     }
     isTyping = false;
     document.getElementById("send-btn").disabled = false;
