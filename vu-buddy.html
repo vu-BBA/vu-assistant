@@ -288,6 +288,8 @@ Language cs401</button>
     const file = e.target.files[0];
     if (!file) return;
 
+    console.log("File selected:", file.name, file.type, file.size);
+
     if (file.type !== "application/pdf") {
       showUploadStatus("error", "Only PDF files are allowed ❌");
       return;
@@ -303,24 +305,32 @@ Language cs401</button>
     try {
       const formData = new FormData();
       formData.append("file", file);
-      formData.append("filename", file.name);
+
+      console.log("FormData created, sending to:", UPLOAD_WEBHOOK);
 
       const res = await fetch(UPLOAD_WEBHOOK, {
         method: "POST",
         body: formData
       });
 
+      console.log("Response status:", res.status);
+
       if (res.ok) {
         showUploadStatus("processing", "Indexing your PDF, please wait...");
+        const respText = await res.text();
+        console.log("Response body:", respText);
         setTimeout(() => {
           showUploadStatus("success", file.name + " is ready! Ask your questions ✅");
           addMessage("I have uploaded " + file.name + ". You can now ask me questions about it!", "user");
         }, 3000);
       } else {
-        showUploadStatus("error", "Upload failed. Please try again ❌");
+        const errText = await res.text();
+        console.log("Error response:", errText);
+        showUploadStatus("error", "Upload failed ❌ (" + res.status + ")");
       }
     } catch (err) {
-      showUploadStatus("error", "Connection error. Check your internet ❌");
+      console.error("Upload error:", err);
+      showUploadStatus("error", "Connection error ❌ " + err.message);
     }
 
     e.target.value = "";
